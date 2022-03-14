@@ -3,12 +3,12 @@ export default function Navbar(){
         <div className="navbar">
             <div className="container">
                 <div className="logo">
-                    <ion-icon name="logo-instagram"></ion-icon>
+                    <IonIcon name="logo-instagram"/>
                     <div className="separador"></div>
                     <img src="assets/img/logo.png" />
                 </div>
                 <div className="logo-mobile">
-                    <ion-icon name="logo-instagram"></ion-icon>
+                    <IonIcon name="logo-instagram"/>
                 </div>
                 <div className="instagram-mobile">
                     <img src="assets/img/logo.png" />
@@ -17,15 +17,20 @@ export default function Navbar(){
                     <input type="text" placeholder="Pesquisar" />
                 </div>
                 <div className="icones">
-                    <ion-icon name="paper-plane-outline"></ion-icon>
-                    <ion-icon name="compass-outline"></ion-icon>
-                    <ion-icon name="heart-outline"></ion-icon>
-                    <ion-icon name="person-outline"></ion-icon>
+                    <IonIcon name="paper-plane-outline"/>
+                    <IonIcon name="compass-outline"/>
+                    <IonIcon name="heart-outline"/>
+                    <IonIcon name="person-outline"/>
                 </div>
                 <div className="icones-mobile">
-                    <ion-icon name="paper-plane-outline"></ion-icon>
+                    <IonIcon name="paper-plane-outline"/>
                 </div>
             </div>
         </div>
+    );
+}
+function IonIcon (props){
+    return(
+    <ion-icon name={props.name}></ion-icon>
     );
 }

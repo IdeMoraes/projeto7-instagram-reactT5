@@ -1,70 +1,66 @@
 export default function Posts(){
+    let posts =[
+        {
+            userImage:"assets/img/meowed.svg",
+            userName:"meowed", 
+            postImage:"assets/img/gato-telefone.svg", 
+            mainLike:"respondeai", 
+            mainLikeImage:"assets/img/respondeai.svg", 
+            likeNumber:"101.523"
+        },
+        {
+            userImage:"assets/img/barked.svg", 
+            userName:"barked", 
+            postImage:"assets/img/dog.svg", 
+            mainLike:"adorable_animals", 
+            mainLikeImage:"assets/img/adorable_animals.svg", 
+            likeNumber:"99.159" 
+        }
+    ]
     return(
         <div className="posts">
-            <div className="post">
-                <div className="topo">
-                    <div className="usuario">
-                        <img src="assets/img/meowed.svg" />
-                        meowed
-                    </div>
-                    <div className="acoes">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
-                    </div>
+            {posts.map(post => <Post userImage={post.userImage} userName={post.userName} postImage={post.postImage} mainLike={post.mainLike} mainLikeImage={post.mainLikeImage} likeNumber={post.likeNumber}/>)}
+        </div>
+    );
+}
+function IonIcon (props){
+    return(
+    <ion-icon name={props.name}></ion-icon>
+    );
+}
+function Post (props){
+    return(
+    <div className="post">
+        <div className="topo">
+            <div className="usuario">
+                <img src={props.userImage} />
+                {props.userName}
+            </div>
+            <div className="acoes">
+                <IonIcon name="ellipsis-horizontal"/>
+            </div>
+        </div>
+        <div className="conteudo">
+            <img src={props.postImage} />
+        </div>
+        <div className="fundo">
+            <div className="acoes">
+                <div>
+                    <IonIcon name="heart-outline"/>
+                    <IonIcon name="chatbubble-outline"/>
+                    <IonIcon name="paper-plane-outline"/>
                 </div>
-                <div className="conteudo">
-                    <img src="assets/img/gato-telefone.svg" />
-                </div>
-                <div className="fundo">
-                    <div className="acoes">
-                        <div>
-                            <ion-icon name="heart-outline"></ion-icon>
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                            <ion-icon name="paper-plane-outline"></ion-icon>
-                        </div>
-                        <div>
-                            <ion-icon name="bookmark-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <div className="curtidas">
-                        <img src="assets/img/respondeai.svg" />
-                        <div className="texto">
-                            Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
-                        </div>
-                    </div>
+                <div>
+                    <IonIcon name="bookmark-outline"/>
                 </div>
             </div>
-            <div className="post">
-                <div className="topo">
-                    <div className="usuario">
-                        <img src="assets/img/barked.svg" />
-                        barked
-                    </div>
-                    <div className="acoes">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
-                    </div>
-                </div>
-                <div className="conteudo">
-                    <img src="assets/img/dog.svg" />
-                </div>
-                <div className="fundo">
-                    <div className="acoes">
-                        <div>
-                            <ion-icon name="heart-outline"></ion-icon>
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                            <ion-icon name="paper-plane-outline"></ion-icon>
-                        </div>
-                        <div>
-                            <ion-icon name="bookmark-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <div className="curtidas">
-                        <img src="assets/img/adorable_animals.svg" />
-                        <div className="texto">
-                            Curtido por <strong>adorable_animals</strong> e <strong>outras 99.159 pessoas</strong>
-                        </div>
-                    </div>
+            <div className="curtidas">
+                <img src={props.mainLikeImage} />
+                <div className="texto">
+                    Curtido por <strong>{props.mainLike}</strong> e <strong>outras {props.likeNumber} pessoas</strong>
                 </div>
             </div>
         </div>
+    </div>
     );
 }
